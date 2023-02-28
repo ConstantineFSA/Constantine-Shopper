@@ -4,7 +4,7 @@ import authReducer from '../features/auth/authSlice';
 import productsReducer from '../features/products/productsSlice';
 import singleProductReducer from '../features/singleProduct/singleProductSlice';
 import usersReducer from '../features/users/usersSlice';
-
+import singleUserReducer from '../features/user/userSlice'
 
 const store = configureStore({
   reducer: {
@@ -12,7 +12,7 @@ const store = configureStore({
     products: productsReducer,
     singleProduct: singleProductReducer,
     users: usersReducer,
-    // singleUser: singleUserReducer,
+    user: singleUserReducer,
     // orders: ordersReducer,
     // singleOrder: singleOrderReducer
   },

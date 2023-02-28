@@ -5,10 +5,11 @@ import { selectUsers, fetchUsers } from './usersSlice'
 
 const Users = () => {
     const users = useSelector(selectUsers)
+    console.log(users)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchUsers())
-    })
+    }, [dispatch])
 
     return (
         <div id='users-container'>
