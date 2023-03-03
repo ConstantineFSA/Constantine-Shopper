@@ -8,10 +8,12 @@ import { Link, Routes, Route, useParams } from "react-router-dom";
 import { me } from "../auth/authSlice";
 import { deleteProductAsync } from "../singleProduct/singleProductSlice";
 import DeleteProduct from "./DeleteProduct";
+import { addToCart } from "../cart/cartSlice";
 
 const Products = () => {
   const products = useSelector(selectProducts);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
+  const { id } = useParams();
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,13 +33,31 @@ const Products = () => {
             <div className="productInfo">
               <Link to={`/products/${product.id}`}>{product.name}</Link>
               <p className="margin2px">{`$${product.price}`}</p>
-              <p className="margin2px italic">{product.description.charAt(0).toUpperCase()+product.description.slice(1)}</p>
-              <button>add to cart</button>
+              <p className="margin2px italic">
+                {product.description.charAt(0).toUpperCase() +
+                  product.description.slice(1)}
+              </p>
+              <button
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      userId: id,
+                      productId: product.id,
+                      quantity: 1,
+                    })
+                  )
+                }
+              >
+                add to cart
+              </button>
+
               {isAdmin ? (
-              <DeleteProduct className="deleteButton" product={product}>REMOVE PRODUCT</DeleteProduct>
-            ) : (
-              ""
-            )}
+                <DeleteProduct className="deleteButton" product={product}>
+                  REMOVE PRODUCT
+                </DeleteProduct>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         ))}

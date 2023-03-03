@@ -13,14 +13,11 @@ import { me } from "./store";
 import { fetchUsers } from "../features/users/usersSlice";
 import AddProduct from "../features/products/AddProduct";
 import Cart from "../features/cart/Cart";
-/**
- * COMPONENT
- */
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
-  const isAdmin = useSelector((state) => state.auth.me.isAdmin)
-  const userId = useSelector((state) => state.auth.me.id); // get current user's id
+  const isAdmin = useSelector((state) => state.auth.me.isAdmin);
+  const userId = useSelector((state) => state.auth.me.id);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,14 +28,14 @@ const AppRoutes = () => {
 
   return (
     <div>
-      { isLoggedIn ? (
+      {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route to="/home" element={<Home />} />
           <Route path="/products/:id" element={<SingleProduct />} />
           <Route path="/products" element={<Products />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/users/:id" element={<User userId={userId}/>} /> // update route for logged in users
+          <Route path="/users/:id" element={<User userId={userId} />} />
           <Route path="/users/:id/cart" element={<Cart userId={userId}/>} />
         </Routes>
       ) : (
@@ -59,8 +56,8 @@ const AppRoutes = () => {
           <Route path="/products/:id" element={<SingleProduct />} />
           <Route path="/products/add" element={<AddProduct />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/users/:id" element={<User userId={userId} />} /> // pass userId prop to User component
-          <Route path="/users/:id/cart" element={<Cart />} />
+          <Route path="/users/:id" element={<User userId={userId} />} />
+          <Route path="/users/:id/cart" element={<Cart userId={userId}/>} />
         </Routes>
       )}
     </div>

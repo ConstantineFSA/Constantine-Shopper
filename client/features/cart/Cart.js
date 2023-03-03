@@ -18,8 +18,15 @@ const Cart = () => {
     return (
         <div>
             <h1>Your Cart</h1>
+            {cart.orderData && (
+                <>
+                    <p>Order Items: {cart.orderData.orderItems}</p>
+                    <p>Total: ${cart.orderData.total.toFixed(2)}</p>
+                </>
+            )}
         </div>
     )
 }
 
 export default Cart
+
