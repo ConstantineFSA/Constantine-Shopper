@@ -150,6 +150,7 @@ router.put('/:id/cart/editCart', async(req, res, next) => {
       }
 
     })
+    
     if (orderItem.quantity > quantity) {
       OrderItems.decrement(
         'quantity', { by: 1, where: {
@@ -159,7 +160,7 @@ router.put('/:id/cart/editCart', async(req, res, next) => {
       )
       order.total -= product.price
       await order.save()
-      await OrderItems.save()
+      await orderItem.save()
     } else {
       OrderItems.increment(
         'quantity', { by: 1, where: {

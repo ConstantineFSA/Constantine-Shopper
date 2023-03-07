@@ -41,7 +41,7 @@ const Cart = () => {
         }
 
         setEdited(true)
-        dispatch(editCart(itemToEdit)).then(dispatch(fetchCart(user.id)));
+        dispatch(editCart(itemToEdit));
     };
 
     const handleRemoveProduct = (item) => {
@@ -92,6 +92,7 @@ const Cart = () => {
               <div className="ui">
               <input
                   type="number"
+                  min='1'
                   value={item.quantity}
                   onChange={(event) => handleEdit(event, item.product.id)}
                 />
