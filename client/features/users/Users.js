@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { fetchUsers, selectUsers } from './usersSlice'
 import { deleteUser } from './usersSlice'
 import Pagination from '../pagination/Pagination'
-//import uuid for our keys???
+import { Button } from '@mui/material'
 
 const Users = () => {
     const isAdmin = useSelector((state) => state.auth.me.isAdmin);
@@ -40,10 +40,10 @@ const Users = () => {
                         <h2>{user.email}</h2>
                         <h3>{user.address}</h3>
                         </Link>
-                        <button className='delete-button' onClick={() => {
+                        <Button className='delete-button' onClick={() => {
                             setDeleteStatus(true)
                             dispatch(deleteUser(user.id))
-                        }}>X</button>
+                        }}>X</Button>
                     </div>
                 )
             })}

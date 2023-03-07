@@ -35,6 +35,8 @@
     flex-direction: column;
     align-items: center;
     margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+    border-radius: 30px;
 }
 
 #users a {
@@ -50,7 +52,7 @@
     background-color: grey;
     border-radius: 30px;
     padding: 10px;
-    overflow: scroll
+    overflow: scroll;
 }
 
 .user-pic {
@@ -62,7 +64,8 @@
 .user:not(.single-user):hover {
     height: 310px;
     width: 370px;
-    transition: 0.3s
+    transition: 0.3s;
+    background-color: rgb(106, 181, 255);
 }
 
 .user::-webkit-scrollbar {
@@ -71,13 +74,14 @@
 
 .user-container > .delete-button {
     width: 50px;
-    background-color: red;
+    background-color: grey;
     color: white;
     border: none;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
-.delete-button:hover {
-    background-color: crimson;
+.user-container > .delete-button:hover {
+    background-color: red;
     transition: 0.3s
 }
