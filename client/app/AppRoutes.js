@@ -65,7 +65,7 @@ const AppRoutes = () => {
           <Route path="/users" element={<Users />} />
           <Route path="/users/:id" element={<User userId={userId} />} /> // pass userId prop to User component
           <Route path="/users/:id/cart" element={<Cart />} />
-          <Route path='/users/guest/cart' element={<GuestCart />} />
+          <Route path='/guest/cart' element={<GuestCart />} />
         </Routes>
       )}
     </div>
