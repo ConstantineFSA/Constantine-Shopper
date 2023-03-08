@@ -5,7 +5,10 @@ const GuestCart = () => {
 
     //get local storage
     return (
+        <>
         <h1 className='cart-header'>Guest Cart</h1>
+        <h1>Testing</h1>
+        </>
     )
 }
 
